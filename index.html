@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adriel & Micah: The Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&family=Lora:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bg-elements" id="bg"></div>
+
+    <header>
+        <h1>Adriel & Micah</h1>
+        <p class="subtitle">Our Beautiful Adventure</p>
+        <div class="scroll-hint">Scroll to begin</div>
+    </header>
+
+    <div class="adventure-container">
+        <div class="chapter">
+            <div class="content-box">
+                <div class="date-badge">2023</div>
+                <h3 class="chapter-title">The Silent Year</h3>
+                <p>Grade 11 at MMCL. We were strangers sharing the same air, unaware that the person we'd eventually love was just a few classrooms away.</p>
+            </div>
+        </div>
+
+        <div class="photo-toss-row">
+            <div class="polaroid"><img src="images/photo1.jpg" alt="Us"></div>
+            <div class="polaroid"><img src="images/photo2.jpg" alt="Us"></div>
+            <div class="polaroid"><img src="images/photo3.jpg" alt="Us"></div>
+        </div>
+
+        <div class="chapter">
+            <div class="content-box">
+                <div class="date-badge">Early 2024</div>
+                <h3 class="chapter-title">The First Spark</h3>
+                <p>Grade 12 arrived, and with it, the PE Day Dance. One question about a song started it all. No avoiding each other now.</p>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="content-box">
+                <div class="date-badge">Late 2024</div>
+                <h3 class="chapter-title">Written in the Stars</h3>
+                <p>Accidentally cast as "Husband and Wife." Then, the stage play: the Assistant Director and his Queen.</p>
+            </div>
+        </div>
+
+        <div class="photo-toss-row">
+            <div class="polaroid"><img src="images/photo4.jpg" alt="Us"></div>
+            <div class="polaroid"><img src="images/photo5.jpg" alt="Us"></div>
+        </div>
+
+        <div class="chapter">
+            <div class="content-box">
+                <div class="date-badge">Nov 13, 2024</div>
+                <h3 class="chapter-title">The Digital Beginning</h3>
+                <p>The first IG chat. While Adi was teasing, Micah was waiting on Roblox. The "game" was already won.</p>
+            </div>
+        </div>
+
+        <div class="photo-toss-row">
+            <div class="polaroid"><img src="images/photo6.jpg" alt="Us"></div>
+            <div class="polaroid"><img src="images/photo7.jpg" alt="Us"></div>
+            <div class="polaroid"><img src="images/photo8.jpg" alt="Us"></div>
+        </div>
+
+        <div class="chapter">
+            <div class="content-box">
+                <div class="date-badge">Jan 15, 2025</div>
+                <h3 class="chapter-title">Officially Yours</h3>
+                <p>Midnight. Under the stars of January, we stopped courting and started a lifetime together.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="narration-section">
+        <div class="narrator-box">
+            <h2 class="section-title">The Full Story</h2>
+            <p>In the busy halls of Mapua Malayan Colleges Laguna, among thousands of passing faces, two souls were destined to collide. They spent a whole year as strangers in Grade 11, never speaking a word. But 2024 brought a shift. Through PE dances and stage plays, the Assistant Director found his Queen. What started as a "husband and wife" role in a dance became a reality that neither could have predicted. Through nervous letters, Roblox games, and midnight confessions, Adriel and Micah turned a chance encounter into a beautiful, enduring love story.</p>
+        </div>
+    </section>
+
+    <section class="letter-section">
+        <div class="parchment">
+            <h2 class="chapter-title">My Dearest Macchi,</h2>
+            <div class="letter-text">
+                <p>Thirteen months might seem like just a number to some, but to me, it’s 395 days that I haven’t had to walk through this world alone...</p>
+                <p>I love looking back at where we started. It’s funny how we spent all of Grade 11 at MMCL as total strangers, never saying a single word. I had no idea then that the girl I didn’t talk to would eventually become my whole world...</p>
+                <p>Working on that stage play together, with me as your Assistant Director and you as my Queen, was when everything shifted. I’ll never forget November 13, 2024, the day we started chatting on IG...</p>
+                <p>Thank you for choosing me every single day for the last thirteen months. I am so deeply in love with who you are and who we are becoming together. Happy 13th Monthsary, my beautiful Macchi. Here is to a lifetime more.</p>
+                <p class="signature">Forever yours, <br>Adi</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="photo-dump-title">Our Memories</div>
+    <section class="photo-dump">
+        <div class="polaroid"><img src="images/photo9.jpg" alt="Us"></div>
+        <div class="polaroid"><img src="images/photo10.jpg" alt="Us"></div>
+        <div class="polaroid"><img src="images/photo11.jpg" alt="Us"></div>
+        <div class="polaroid"><img src="images/photo12.jpg" alt="Us"></div>
+        <div class="polaroid"><img src="images/photo13.jpg" alt="Us"></div>
+        <div class="polaroid"><img src="images/photo18.jpg" alt="Us"></div>
+        <div class="polaroid"><img src="images/photo19.jpg" alt="Us"></div>
+        <div class="polaroid"><img src="images/photo20.jpg" alt="Us"></div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.chapter, .polaroid, .narrator-box').forEach(el => observer.observe(el));
+
+        const bg = document.getElementById('bg');
+        const icons = ['❤', '🍵', '🌸'];
+        for(let i=0; i<30; i++) {
+            const el = document.createElement('div');
+            el.className = 'heart';
+            el.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (Math.random() * 10 + 7) + 's';
+            bg.appendChild(el);
+        }
+    </script>
+</body>
+</html>

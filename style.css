@@ -1,0 +1,92 @@
+:root {
+    --pink-soft: #ffcad4;
+    --pink-deep: #f4acb7;
+    --matcha-cream: #f0f4e1;
+    --matcha-green: #a7c957;
+    --text-color: #5d4a4a;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--matcha-cream);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, var(--pink-soft) 0%, var(--matcha-cream) 100%);
+}
+
+h1 { font-family: 'Dancing Script', cursive; font-size: clamp(3rem, 12vw, 6rem); color: white; text-shadow: 3px 3px var(--pink-deep); }
+
+/* Timeline Structure */
+.adventure-container { position: relative; max-width: 900px; margin: 0 auto; padding: 50px 20px; }
+.adventure-container::before { content: ''; position: absolute; left: 50%; width: 4px; height: 100%; background: var(--pink-soft); transform: translateX(-50%); }
+
+.chapter { display: flex; justify-content: flex-end; margin: 80px 0; opacity: 0; transform: translateY(30px); transition: 1s; }
+.chapter:nth-child(even) { justify-content: flex-start; }
+.chapter.visible { opacity: 1; transform: translateY(0); }
+
+.content-box { width: 42%; background: white; padding: 25px; border-radius: 20px; border-bottom: 5px solid var(--matcha-green); z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+/* Photo Toss Rows */
+.photo-toss-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 3;
+}
+
+.polaroid {
+    background: white;
+    padding: 10px 10px 25px 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    width: 180px;
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.polaroid.visible { opacity: 1; }
+.polaroid img { width: 100%; height: 180px; object-fit: cover; }
+
+/* Rotating logic for "tossed" look */
+.polaroid:nth-child(odd) { transform: rotate(-4deg) translateY(10px); }
+.polaroid:nth-child(even) { transform: rotate(4deg) translateY(-10px); }
+
+/* Narration Section */
+.narration-section { padding: 100px 20px; background: white; }
+.narrator-box { 
+    max-width: 800px; margin: 0 auto; padding: 40px; 
+    border: 2px dashed var(--matcha-green); border-radius: 30px; 
+    font-family: 'Lora', serif; font-style: italic; line-height: 2; text-align: center;
+    opacity: 0; transition: 1.5s;
+}
+.narrator-box.visible { opacity: 1; }
+
+/* Letter Section */
+.letter-section { padding: 100px 20px; background: var(--matcha-cream); }
+.parchment { max-width: 800px; margin: 0 auto; background: #fffef0; padding: 60px; border: 1px solid #e0e0e0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.letter-text p { margin-bottom: 20px; }
+
+/* Photo Dump Grid */
+.photo-dump-title { text-align: center; font-family: 'Dancing Script'; font-size: 3rem; margin-top: 50px; color: var(--pink-deep); }
+.photo-dump { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 50px; }
+.photo-dump .polaroid { width: 100%; position: relative; opacity: 1; }
+
+@media (max-width: 768px) {
+    .adventure-container::before { display: none; }
+    .content-box { width: 100%; }
+    .polaroid { width: 140px; }
+}
+
+.heart { position: fixed; z-index: -1; opacity: 0.2; pointer-events: none; animation: floatUp 10s linear infinite; }
+@keyframes floatUp { 0% { transform: translateY(110vh); } 100% { transform: translateY(-10vh); } }
